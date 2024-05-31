@@ -1,12 +1,38 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import HeaderBox from "@/components/HeaderBox";
+import RightSidebar from "@/components/RightSidebar";
+import TotalBalanceBox from "@/components/TotalBalanceBox";
+const loggedIn = {
+  firstName: "Olinya",
+  email: "olinyacpaul7849@gmail.com",
+  lastName: "paul",
+};
 
-export default function Home() {
+const Home = () => {
   return (
-    <main>
-      <div>
-        <Button>Click me</Button>
+    <section className="home">
+      <div className="home-content">
+        <header className="home-header">
+          <HeaderBox
+            type="greeting"
+            title="Welcome"
+            user={(loggedIn && loggedIn.firstName) || "Guest"}
+            subtext="Access and manage your account and transactions efficiently."
+          />
+          <TotalBalanceBox
+            accounts={[]}
+            totalBanks={133}
+            totalCurrentBalance={1250.65}
+          />
+        </header>
+        rescent transaction
       </div>
-    </main>
+      <RightSidebar
+        user={loggedIn}
+        transactions={[]}
+        banks={[{ bank2: "ssss" }, { bank1: "sssss" }]}
+      />
+    </section>
   );
-}
+};
+
+export default Home;
