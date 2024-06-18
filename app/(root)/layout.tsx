@@ -3,7 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import React, { ReactNode } from "react";
 
-const layout = ({ children }: { children: ReactNode }) => {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   const user = { name: "paul" };
   const loggedIn = { name: "paul" };
   return (
@@ -23,4 +23,4 @@ const layout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default layout;
+export default RootLayout;

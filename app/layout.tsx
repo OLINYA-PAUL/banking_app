@@ -1,17 +1,19 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const IBMplexSerif = IBM_Plex_Serif({
+const ibmPlexSerif = IBM_Plex_Serif({
   subsets: ["latin"],
-  weight: ["700", "400"],
+  weight: ["400", "700"],
   variable: "--font-ibm-plex-serif",
 });
 
 export const metadata: Metadata = {
-  title: "Mordern Bank clone",
-  description: "The world best banking platform for all",
+  title: "The world first Fintech money app",
+  description: "We are the best fintech of the new age app",
   icons: {
     icon: "/icons/logo.svg",
   },
@@ -24,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${IBMplexSerif.className}`}>
+      <body className={`${inter.variable} ${ibmPlexSerif.variable}`}>
         {children}
       </body>
     </html>
