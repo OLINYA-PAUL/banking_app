@@ -39,8 +39,8 @@ const AuthForm = ({ type }: { type: string }) => {
     try {
       if (type === "sign-up") {
         const newUser = await signUp(data);
-        //@ts-ignore
-        setUser(newUser);
+        if (newUser) setUser(newUser);
+        router.push("/");
       }
       if (type === "sign-in") {
         const response = await signIn({
@@ -48,7 +48,6 @@ const AuthForm = ({ type }: { type: string }) => {
           password: data.password,
         });
 
-        //@ts-ignore
         if (response) router.push("/");
       }
     } catch (error: any) {
@@ -173,10 +172,10 @@ const AuthForm = ({ type }: { type: string }) => {
                       <Loader2 size={20} className="animate-spin" /> &nbsp;
                       Loading...
                     </>
-                  ) : type === "sign-in" || type === "sign-in" ? (
-                    "Sign In" || "Sign Up"
+                  ) : type === "sign-in" ? (
+                    "Sign In"
                   ) : (
-                    "Sign Up" || "Sign In"
+                    "Sign Up"
                   )}
                 </Button>
               </div>

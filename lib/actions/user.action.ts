@@ -2,9 +2,9 @@
 
 import { cookies } from "next/headers";
 import { createAdminClient, createSessionClient } from "../appwrite";
-import { redirect } from "next/navigation";
 import { ID } from "node-appwrite";
 import { parseStringify } from "../utils";
+import { redirect } from 'next/navigation';
 
 export const signIn = async ({ email, password }: signInProps) => {
   try {
@@ -29,7 +29,7 @@ export const signUp = async (userData: SignUpParams) => {
       password,
       `${firstName} ${lastName}`
     );
-    
+
     const session = await account.createEmailPasswordSession(email, password);
 
     cookies().set("bank-session", session.secret, {
@@ -41,7 +41,8 @@ export const signUp = async (userData: SignUpParams) => {
 
     parseStringify(newUser);
 
-    redirect("/");
+    return redirect('/')
+
   } catch (error: any) {
     console.log(error.message);
   }
@@ -50,7 +51,6 @@ export const signUp = async (userData: SignUpParams) => {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    console.log(account);
     return await account.get();
   } catch (error) {
     return null;
