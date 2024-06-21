@@ -2,13 +2,9 @@ import HeaderBox from "@/components/HeaderBox";
 import RightSidebar from "@/components/RightSidebar";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import { getLoggedInUser } from "@/lib/actions/user.action";
-import { redirect } from "next/navigation";
 
 const Home = async () => {
   const loggedIn = await getLoggedInUser();
-  console.log(loggedIn);
-
-  if (!loggedIn) redirect("/sign-up");
 
   return (
     <section className="home">

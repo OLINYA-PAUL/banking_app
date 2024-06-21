@@ -22,7 +22,7 @@ const BankCard = ({
               {account?.name}
             </h1>
             <p className="font-ibm-plex-serif font-black text-white">
-              {formatAmount(account.currentBalance)}
+              {formatAmount(account.availableBalance)}
             </p>
           </div>
 
